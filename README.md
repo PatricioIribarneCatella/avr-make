@@ -20,10 +20,10 @@ $ sudo apt install gcc-avr binutils-avr avr-libc avrdude gdb-avr
 $ ./generate.py --device=DEVICE --prog=PROGRAMMER --port=PORT --bc=BITCLOCK
 ```
 
-- DEVICE: _avr_ microcontroller
-- PROGRAMMER: programmer type
-- BITCLOCK: JTAG/STK500v2 bit clock period (us)
-- PORT: connection port
+- `DEVICE`: _AVR_ microcontroller
+- `PROGRAMMER`: programmer type
+- `BITCLOCK`: _JTAG/STK500v2_ bit clock period (us)
+- `PORT`: connection port
 
 ### _Makefile_: Targets
 
