@@ -1,5 +1,7 @@
 # avr-make
 
+Generates _Makefile_ for **AVR** microcontroller project
+
 ## Dependencies
 
 ```bash
