@@ -17,13 +17,14 @@ $ sudo apt install gcc-avr binutils-avr avr-libc avrdude gdb-avr
 ## Generate _Makefile_
 
 ```bash
-$ ./generate.py --device=DEVICE --prog=PROGRAMMER --port=PORT --bc=BITCLOCK
+$ ./generate.py --device=DEVICE --prog=PROGRAMMER --port=PORT --bc=BITCLOCK --baud=BAUD-RATE
 ```
 
 - `DEVICE`: _AVR_ microcontroller
 - `PROGRAMMER`: programmer type
 - `BITCLOCK`: _JTAG/STK500v2_ bit clock period (us)
 - `PORT`: connection port
+- `BAUD-RATE: baud rate
 
 ### _Makefile_: Targets
 
