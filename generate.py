@@ -7,7 +7,7 @@ MAKEFILE = "Makefile"
 
 def main(args):
 
-    m = makefile(args.device, args.prog, args.port, args.bc)
+    m = makefile(args.device, args.prog, args.port, args.bc, args.baud)
 
     with open(MAKEFILE, "w") as f:
         f.write(m)
@@ -37,6 +37,11 @@ def parse():
     parser.add_argument(
             '--bc',
             help='JTAG/STK500v2 bit clock period (us)'
+    )
+    
+    parser.add_argument(
+            '--baud',
+            help='Baud Rate'
     )
 
     args = parser.parse_args()

@@ -1,7 +1,8 @@
 DEVICE = atmega328p
-PROGRAMMER = usbasp
+PROGRAMMER = usbtiny
 BITCLOCK = 0.5
 PORT = usb
+BAUD = 115200
 
 AVR = avr-gcc
 AVRHEX = avr-objcopy
@@ -9,7 +10,7 @@ AVRDUDE = avrdude
 
 AVRFLAGS = -mmcu=$(DEVICE) -Os -g
 AVRHEXFLAGS = -O ihex
-AVRDUDEFLAGS = -p $(DEVICE) -c $(PROGRAMMER) -B $(BITCLOCK) -P $(PORT) -D
+AVRDUDEFLAGS = -p $(DEVICE) -c $(PROGRAMMER) -B $(BITCLOCK) -b $(BAUD) -P $(PORT) -D
 
 EXEC = main
 

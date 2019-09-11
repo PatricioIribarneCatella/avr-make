@@ -9,6 +9,7 @@ DEVICE = {}\n\
 PROGRAMMER = {}\n\
 BITCLOCK = {}\n\
 PORT = {}\n\
+BAUD = {}\n\
 \n"
 
 TEMPLATE = "\
@@ -18,7 +19,7 @@ AVRDUDE = avrdude\n\
 \n\
 AVRFLAGS = -mmcu=$(DEVICE) -Os -g\n\
 AVRHEXFLAGS = -O ihex\n\
-AVRDUDEFLAGS = -p $(DEVICE) -c $(PROGRAMMER) -B $(BITCLOCK) -P $(PORT) -D\n\
+AVRDUDEFLAGS = -p $(DEVICE) -c $(PROGRAMMER) -B $(BITCLOCK) -b $(BAUD) -P $(PORT) -D\n\
 \n\
 EXEC = main\n\
 \n\
@@ -46,9 +47,9 @@ clean: \n\
 \n\
 .PHONY: clean\n"
 
-def makefile(device, prog, port, bc):
+def makefile(device, prog, port, bc, baud):
 
-    h = HEADER.format(device, prog, bc, port)
+    h = HEADER.format(device, prog, bc, port, baud)
     
     return h + TEMPLATE
 
