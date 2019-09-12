@@ -1,6 +1,6 @@
 # avr-make
 
-Generates _Makefile_ for **AVR** microcontroller project
+Generates _Makefile_ for **AVR** microcontroller project (for _linux_ users)
 
 ## Dependencies
 
@@ -11,7 +11,7 @@ Generates _Makefile_ for **AVR** microcontroller project
 or
 
 ```bash
-$ sudo apt install gcc-avr binutils-avr avr-libc avrdude gdb-avr
+$ sudo apt install gcc-avr binutils-avr avr-libc avrdude gdb-avr simavr
 ```
 
 ## Generate _Makefile_
@@ -23,7 +23,7 @@ $ ./generate.py --device=DEVICE --prog=PROGRAMMER --port=PORT --bc=BITCLOCK --ba
 - `DEVICE`: _AVR_ microcontroller
 - `PROGRAMMER`: programmer type
 - `BITCLOCK`: _JTAG/STK500v2_ bit clock period (us)
-- `PORT`: connection port
+- `PORT`: connection port (usually it's in `/dev` directory, under the name of _tty*_)
 - `BAUD-RATE: baud rate
 
 ### _Makefile_: Targets
@@ -38,3 +38,4 @@ $ ./generate.py --device=DEVICE --prog=PROGRAMMER --port=PORT --bc=BITCLOCK --ba
  $ cd tests
  $ make
 ``` 
+

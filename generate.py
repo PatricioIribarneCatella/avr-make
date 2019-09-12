@@ -7,7 +7,7 @@ MAKEFILE = "Makefile"
 
 def main(args):
 
-    m = makefile(args.device, args.prog, args.port, args.bc, args.baud)
+    m = makefile(args.device, args.prog, args.port, args.bc, args.baud, args.freq)
 
     with open(MAKEFILE, "w") as f:
         f.write(m)
@@ -42,6 +42,11 @@ def parse():
     parser.add_argument(
             '--baud',
             help='Baud Rate'
+    )
+
+    parser.add_argument(
+            '--freq',
+            help='Frequency'
     )
 
     args = parser.parse_args()

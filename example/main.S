@@ -1,5 +1,6 @@
-#include <avr/io.h>
+#include "avrx.h"
 
+.text
 .global main
 
 main:

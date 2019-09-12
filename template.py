@@ -10,6 +10,7 @@ PROGRAMMER = {}\n\
 BITCLOCK = {}\n\
 PORT = {}\n\
 BAUD = {}\n\
+FREQ = {}\n\
 \n"
 
 TEMPLATE = "\
@@ -39,6 +40,12 @@ $(EXEC).elf: $(OBJFILES)\n\
 %.hex: $(EXEC).elf\n\
 \t$(AVRHEX) $(AVRHEXFLAGS) $^ $@\n\
 \n\
+gdb: $(EXEC).elf\n\
+\tavr-gdb -q -s $< -ex 'target remote 127.0.0.1:1234'\n\
+\n\
+gdb-sim: $(EXEC).hex\n\
+\tsimavr -f $(FREQ) -m $(DEVICE) $< -gdb\n\
+\n\
 upload: all\n\
 \t$(AVRDUDE) $(AVRDUDEFLAGS) -U flash:w:$(HEX).hex:i\n\
 \n\
@@ -47,9 +54,9 @@ clean: \n\
 \n\
 .PHONY: clean\n"
 
-def makefile(device, prog, port, bc, baud):
+def makefile(device, prog, port, bc, baud, freq):
 
-    h = HEADER.format(device, prog, bc, port, baud)
+    h = HEADER.format(device, prog, bc, port, baud, freq)
     
     return h + TEMPLATE
 

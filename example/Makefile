@@ -1,14 +1,14 @@
 DEVICE = atmega328p
-PROGRAMMER = usbtiny
+PROGRAMMER = arduino
 BITCLOCK = 0.5
-PORT = usb
+PORT = /dev/ttyACM0
 BAUD = 115200
 
 AVR = avr-gcc
 AVRHEX = avr-objcopy
 AVRDUDE = avrdude
 
-AVRFLAGS = -mmcu=$(DEVICE) -Os -g
+AVRFLAGS = -mmcu=$(DEVICE) -Os -g -nostartfiles
 AVRHEXFLAGS = -O ihex
 AVRDUDEFLAGS = -p $(DEVICE) -c $(PROGRAMMER) -B $(BITCLOCK) -b $(BAUD) -P $(PORT) -D
 
@@ -29,6 +29,12 @@ $(EXEC).elf: $(OBJFILES)
 
 %.hex: $(EXEC).elf
 	$(AVRHEX) $(AVRHEXFLAGS) $^ $@
+
+gdb: $(EXEC).elf
+	avr-gdb -q -s $< -ex 'target remote 127.0.0.1:1234'
+
+gdb-sim: $(EXEC).hex
+	simavr -f $(FREQ) -m $(DEVICE) $< -gdb
 
 upload: all
 	$(AVRDUDE) $(AVRDUDEFLAGS) -U flash:w:$(HEX).hex:i
