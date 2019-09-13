@@ -3,12 +3,13 @@ PROGRAMMER = arduino
 BITCLOCK = 0.5
 PORT = /dev/ttyACM0
 BAUD = 115200
+FREQ = 16m
 
 AVR = avr-gcc
 AVRHEX = avr-objcopy
 AVRDUDE = avrdude
 
-AVRFLAGS = -mmcu=$(DEVICE) -Os -g -nostartfiles
+AVRFLAGS = -mmcu=$(DEVICE) -Os -g
 AVRHEXFLAGS = -O ihex
 AVRDUDEFLAGS = -p $(DEVICE) -c $(PROGRAMMER) -B $(BITCLOCK) -b $(BAUD) -P $(PORT) -D
 

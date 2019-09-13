@@ -4,5 +4,9 @@
 
 set -eu
 
-sudo apt install gcc-avr binutils-avr avr-libc avrdude gdb-avr simavr
+sudo apt install gcc-avr\
+	binutils-avr\
+	avr-libc\
+	avrdude gdb-avr\
+       	simavr libsimavr-dev gtkwave
 

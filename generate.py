@@ -36,11 +36,13 @@ def parse():
 
     parser.add_argument(
             '--bc',
+            default='0.5',
             help='JTAG/STK500v2 bit clock period (us)'
     )
     
     parser.add_argument(
             '--baud',
+            default='115200',
             help='Baud Rate'
     )
 
