@@ -1,5 +1,5 @@
-#ifndef _AVRX_
-#define _AVRX_
+#ifndef AVRX_H
+#define AVRX_H
 
 // AVR processor-specific file
 // containing the I/O port
@@ -22,4 +22,4 @@
 #define LOW(x) lo8(x)
 #define HIGH(x) hi8(x)
 
-#endif // _AVRX_
+#endif // AVRX_H
