@@ -6,7 +6,7 @@ V: BYTE SIZE
 M: BYTE 1
 
 CSEG
-ORG 100
+ORG _VECTORS_SIZE
 	rjmp main
 
 .global main
