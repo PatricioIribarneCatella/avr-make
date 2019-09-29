@@ -1,5 +1,5 @@
 #include "avrx.h"
-#include "average.h"
+#include "defs.h"
 
 DSEG
 V: BYTE SIZE

@@ -27,6 +27,7 @@ all: $(HEX)
 
 $(EXEC).elf: $(OBJFILES)
 	$(AVR) $(AVRFLAGS) -o $@ $^
+	avr-objdump -D -S $@ > $(EXEC).asm
 
 %.hex: $(EXEC).elf
 	$(AVRHEX) $(AVRHEXFLAGS) $^ $@
@@ -35,12 +36,12 @@ gdb: $(EXEC).elf
 	avr-gdb -q -s $< -ex 'target remote 127.0.0.1:1234'
 
 gdb-sim: $(EXEC).hex
-	simavr -f $(FREQ) -m $(DEVICE) $< -gdb
+	simavr -f $(FREQ) -m $(DEVICE) $< --gdb
 
 upload: all
 	$(AVRDUDE) $(AVRDUDEFLAGS) -U flash:w:$(HEX).hex:i
 
 clean: 
-	rm -f *.hex *.elf *.o
+	rm -f *.hex *.elf *.o *.asm
 
 .PHONY: clean
