@@ -1,4 +1,4 @@
-#include "average.h"
+#include "defs.h"
 
 .global average
 ; calculates the average
@@ -12,11 +12,23 @@ average:
 
 loop:
 	ld r10, X+
+	
+	; test if the value
+	; is negative or positive
+	tst r10
+	brmi negative
+
+	clr SIGN
+	rjmp sum
+
+negative:
+	ldi SIGN, 0xFF
+
+sum:	
 	add ACUM2, r10
-	adc ACUM1, r0
+	adc ACUM1, SIGN
 	dec I
-	breq exit
-	rjmp loop
+	brne loop
 
 exit:
 	asr ACUM1
