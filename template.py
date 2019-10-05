@@ -44,7 +44,7 @@ gdb: $(EXEC).elf\n\
 \tavr-gdb -q -s $< -ex 'target remote 127.0.0.1:1234'\n\
 \n\
 gdb-sim: $(EXEC).hex\n\
-\tsimavr -f $(FREQ) -m $(DEVICE) $< -gdb\n\
+\tsimavr -f $(FREQ) -m $(DEVICE) $< --gdb\n\
 \n\
 upload: all\n\
 \t$(AVRDUDE) $(AVRDUDEFLAGS) -U flash:w:$(HEX).hex:i\n\
