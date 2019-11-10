@@ -43,7 +43,7 @@ $ ./generate.py --device=DEVICE --prog=PROGRAMMER --port=PORT --bc=BITCLOCK --ba
   - **gdb-sim**: runs [simavr](https://github.com/buserror/simavr) with the final _.hex_ file and connects to the remote _GDB_ target.
   - **gdb**: runs the _GDB_ version for _AVR_ (`avr-gdb`) and connects to the remote target `127.0.0.1:1234`
 
-You first need to run `make gdb-sim` and then open another termianl, and run `make gdb`.
+You first need to run `make gdb-sim` and then open another terminal, and run `make gdb`.
 
 ## Example
 
